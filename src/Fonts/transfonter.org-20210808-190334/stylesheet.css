@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'JungleFever';
+    src: url('JungleFever.eot');
+    src: url('JungleFever.eot?#iefix') format('embedded-opentype'),
+        url('JungleFever.woff2') format('woff2'),
+        url('JungleFever.woff') format('woff'),
+        url('JungleFever.svg#JungleFever') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+

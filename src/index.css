@@ -1,13 +1,96 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Alata";
+  src: url(./Fonts/alata-regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'JungleFever';
+  src: url('./Fonts/JungleFever.eot');
+  src: url('./Fonts/JungleFever.eot?#iefix') format('embedded-opentype'),
+      url('./Fonts/JungleFever.woff2') format('woff2'),
+      url('./Fonts/JungleFever.woff') format('woff'),
+      url('./Fonts/JUNGLEFE.TTF') format('truetype'),
+      url('./Fonts/JungleFever.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.leaf {
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+  border-radius: 100% 0%;
+}
+
+.leaf-left {
+  transform-origin: bottom left;
+  top: -20vw;
+  left: 0px;
+  filter: drop-shadow(0px -10px 8px #000);
+}
+
+.leaf-right {
+  transform-origin: top right;
+  top: 0px;
+  right: 0px;
+  filter: drop-shadow(0px 10px 8px #000);
+}
+
+#logo {
+  opacity: 1;
+  margin-top: 70px;
+  animation-name: fadeIn;	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 3s;
+  width: 30vw;
+}
+
+#navmenu {
+  opacity: 1;
+  animation-name: fadeIn;	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 4s;
+  color: orange;
+  font-family: 'JungleFever';
+  font-size: 30px;
+}
+
+.navelem {
+  height: 30px;
+}
+
+.navelem, .navelem div {
+  display: inline-block;
+}
+
+.navelem div {
+  margin-left: 10px;
+}
+
+#textField {
+  font-family: 'Alata';
+  font-size: 18px;
+  color: white;
+  width: 40vw;
+  text-align: center;
+  margin: auto;
+  margin-top: 40px;
+}
+
+@keyframes fadeIn{
+	0% {
+		opacity: 1;
+	}
+  33% {
+    opacity: 1;
+  }
+	100% {
+		opacity: 1;
+	}
 }
