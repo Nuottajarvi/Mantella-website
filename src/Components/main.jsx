@@ -1,15 +1,36 @@
 import React, { useState } from "react";
 import Leaves from "./leaves";
-import Logo from "../Images/logo.jpg";
+import Footer from "./footer";
+import Logo from "./logo";
+import { ConcertsTab, DiscographyTab, MantellaTab, MediaTab } from "./tabs";
 
-const navTexts = ["MANTELLA", "TOUR", "DISCOGRAPHY", "MEDIA"];
+const navs = {
+    "Mantella": MantellaTab,
+    "Concerts": ConcertsTab,
+    "Discography": DiscographyTab,
+    "Media": MediaTab
+};
 
 function Main() {
 
-    const navElems = navTexts.map((text, i) => 
-        <div className="navelem">
-            {i == 0 ? <div>|</div> : null}
-            <div>
+    const [tab, openTab] = useState("Mantella");
+    const [fadeIn, setFadeIn] = useState("first");
+
+    const changeTab = (name) => {
+        setFadeIn("")
+        setTimeout(() => {
+            setFadeIn("subsequent");
+            openTab(name);
+        }, 1);
+    };
+
+    const navElems = Object.keys(navs).map((text, i) => 
+        <div className="navelem" key={text}>
+            {i === 0 ? <div>|</div> : null}
+            <div
+                className={"navbtn " + (tab === text ? "selected-navelem" : "")}
+                onClick={() => changeTab(text)}
+            >
                 <p>{text}</p>
             </div>
             <div>
@@ -18,20 +39,25 @@ function Main() {
         </div>
     );
 
+    let fade = "";
+    if(fadeIn === "first")
+        fade = "fadeIn";
+    else if(fadeIn === "subsequent")
+        fade = "fadeInFast";
+
+    const visibleTab = navs[tab](fadeIn);
     return <div>
         <Leaves/>
-        <img src={Logo} id="logo"/>
-        <div id="navmenu">
+        <Logo tab={tab}/>
+        <div id="navmenu" className="fadeIn">
             {navElems}
         </div>
-        <div id="textField">
-            <p>
-                Mantella is a psychedelic rock band from Oulu, Finland. Formed during 2020,
-                Mantella started working on their own sound fueled by the pandemic and the
-                band members' love for psychedelic, progressive and classic rock bands of
-                the past and the present
-            </p>
-        </div>
+        {fade !== "" ? 
+            <div className={fade}>
+                {visibleTab}
+            </div>
+        : null}
+        <Footer/>
     </div>;
 }
 

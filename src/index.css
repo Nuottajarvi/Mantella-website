@@ -1,6 +1,7 @@
 body {
   background-color: #000;
   overflow-x: hidden;
+  width: 100vw;
 }
 
 @font-face {
@@ -20,7 +21,15 @@ body {
   font-style: normal;
 }
 
-
+.footer {
+  position: fixed;
+  height: 80px;
+  bottom: 0px;
+  background-color: black;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
 .leaf {
   position: absolute;
   width: 20vw;
@@ -42,23 +51,29 @@ body {
   filter: drop-shadow(0px 10px 8px #000);
 }
 
+.logoholder {
+  height: 30vw;
+  overflow: hidden;
+}
+
 #logo {
   opacity: 1;
   margin-top: 70px;
-  animation-name: fadeIn;	animation-iteration-count: 1;
+  animation-name: fadeIn;
+  animation-iteration-count: 1;
 	animation-timing-function: ease-in;
-	animation-duration: 3s;
-  width: 30vw;
+	animation-duration: 2s;
+  height: 28vw;
 }
 
 #navmenu {
-  opacity: 1;
-  animation-name: fadeIn;	animation-iteration-count: 1;
-	animation-timing-function: ease-in;
-	animation-duration: 4s;
-  color: orange;
+  color: white;
   font-family: 'JungleFever';
   font-size: 30px;
+}
+
+.navbtn {
+  cursor: pointer;
 }
 
 .navelem {
@@ -73,7 +88,16 @@ body {
   margin-left: 10px;
 }
 
-#textField {
+.selected-navelem {
+  color: orange;
+}
+
+#social-medias img{
+  height: 48px;
+  margin: 10px;
+}
+
+.textField {
   font-family: 'Alata';
   font-size: 18px;
   color: white;
@@ -81,16 +105,114 @@ body {
   text-align: center;
   margin: auto;
   margin-top: 40px;
+  opacity: 1;
 }
 
+.galleryField {
+  width: 40vw;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.fadeIn {
+  opacity: 1;
+  animation-name: fadeIn;
+  animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 4s;
+}
+
+.fadeInFast {
+  opacity: 1;
+  animation-name: fadeInFast;
+  animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1.5s;
+}
+
+.fadeInSuperFast {
+  opacity: 1;
+  animation-name: fadeInFast;
+  animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
 @keyframes fadeIn{
 	0% {
-		opacity: 1;
+		opacity: 0;
 	}
   33% {
-    opacity: 1;
+    opacity: 0;
   }
 	100% {
 		opacity: 1;
+	}
+}
+
+@keyframes fadeInFast{
+	0% {
+		opacity: 0;
+	}
+  50% {
+    opacity: 0;
+  }
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInSuperFast{
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+.logoFadeIn {
+  animation-name: logofadeIn; 
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+.logoFadeOut {
+  animation-name: logofadeOut; 
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes logofadeIn{
+	0% {
+		opacity: 0;   
+    height: 0px;
+	}
+  50% {
+    opacity: 0;
+    height: 30vw;
+  }
+	100% {
+    opacity: 1;
+    height: 30vw;
+	}
+}
+
+@keyframes logofadeOut{
+	0% {
+		opacity: 1;
+    height: 30vw;
+	}
+  50% {
+    opacity: 0;
+    height: 30vw;
+  }
+
+	100% {
+		opacity: 0;   
+    height: 0px;
 	}
 }
