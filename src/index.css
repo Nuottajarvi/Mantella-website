@@ -1,3 +1,7 @@
+html {
+  background-color: black;
+}
+
 body {
   background-color: #000;
   overflow-x: hidden;
@@ -52,13 +56,13 @@ body {
 }
 
 .logoholder {
+  margin-top: 70px;
   height: 30vw;
   overflow: hidden;
 }
 
 #logo {
   opacity: 1;
-  margin-top: 70px;
   animation-name: fadeIn;
   animation-iteration-count: 1;
 	animation-timing-function: ease-in;
@@ -69,7 +73,8 @@ body {
 #navmenu {
   color: white;
   font-family: 'JungleFever';
-  font-size: 30px;
+  width: 40vw;
+  margin: auto;
 }
 
 .navbtn {
@@ -88,13 +93,13 @@ body {
   margin-left: 10px;
 }
 
-.selected-navelem {
-  color: orange;
+.navelem div p {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-#social-medias img{
-  height: 48px;
-  margin: 10px;
+.selected-navelem {
+  color: orange;
 }
 
 .textField {
@@ -106,12 +111,57 @@ body {
   margin: auto;
   margin-top: 40px;
   opacity: 1;
+  margin-bottom: 100px;
 }
 
 .galleryField {
   width: 40vw;
   margin: auto;
   margin-top: 40px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 750px) { 
+  #navmenu {
+    font-size: 4vw;
+  }
+
+  .extrabar-1, .extrabar-2{
+    display: inline-block !important;
+  }
+
+  .textField, .galleryField {
+    width: 95vw;
+  }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 1200px) { 
+  #navmenu {
+    font-size: 3vw;
+  }
+
+  .extrabar-1{
+    display: inline-block !important;
+  }
+  .extrabar-2 {
+    display: none !important;
+  }
+  .textField, .galleryField {
+    width: 55vw;
+  }
+}
+
+@media only screen and (min-width: 1200px) { 
+  #navmenu {
+    font-size: 1.5vw;
+  }
+  .extrabar-1, .extrabar-2{
+    display: none !important;
+  }
+}
+
+#social-medias img{
+  height: 48px;
+  margin: 10px;
 }
 
 .fadeIn {

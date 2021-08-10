@@ -27,6 +27,8 @@ function Main() {
     const navElems = Object.keys(navs).map((text, i) => 
         <div className="navelem" key={text}>
             {i === 0 ? <div>|</div> : null}
+            {i === 2 ? <div className="extrabar-1">|</div> : null}
+            {i === 1 || i === 3 ? <div className="extrabar-2">|</div> : null}
             <div
                 className={"navbtn " + (tab === text ? "selected-navelem" : "")}
                 onClick={() => changeTab(text)}

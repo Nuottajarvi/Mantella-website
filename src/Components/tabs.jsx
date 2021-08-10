@@ -27,7 +27,7 @@ export function DiscographyTab() {
     return (
         <div className="textField">
             <p>
-                First EP "Idle Thoughs" will be released in September. Stay tuned!
+                First EP "Idle Thoughts" will be released in September. Stay tuned!
             </p>
         </div>
     );
