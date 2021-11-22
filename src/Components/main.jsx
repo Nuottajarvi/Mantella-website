@@ -1,40 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import ReactGA from "react-ga4";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import Leaves from "./leaves";
 import Footer from "./footer";
 import Logo from "./logo";
 import { ConcertsTab, DiscographyTab, MantellaTab, MediaTab } from "./tabs";
 
-const navs = {
-    "Mantella": MantellaTab,
-    "Concerts": ConcertsTab,
-    "Discography": DiscographyTab,
-    "Media": MediaTab
-};
+const navs = [
+    {title: "Mantella", elem: MantellaTab, url: "/"},
+    {title: "Concerts", elem: ConcertsTab, url: "/concerts"},
+    {title: "Discography", elem: DiscographyTab, url: "/discography"},
+    {title: "Media", elem: MediaTab, url: "/media"}
+];
 
 function Main() {
 
-    const [tab, openTab] = useState("Mantella");
     const [fadeIn, setFadeIn] = useState("first");
 
-    const changeTab = (name) => {
+    const setFadeout = (name) => {
         setFadeIn("")
         setTimeout(() => {
             setFadeIn("subsequent");
-            openTab(name);
         }, 1);
     };
 
-    const navElems = Object.keys(navs).map((text, i) => 
-        <div className="navelem" key={text}>
+    const location = useLocation();
+    const path = location.pathname;
+
+    useEffect(() => {
+        ReactGA.initialize([{trackingId: "G-PFQJQ5F5KH"}]);
+    }, [])
+    
+    useEffect(() => {
+        ReactGA.send({hitType: "pageview", page: path});    
+    }, [path]);
+
+    const navElems = navs.map((nav, i) => 
+        <div className="navelem" key={nav.title}>
             {i === 0 ? <div>|</div> : null}
             {i === 2 ? <div className="extrabar-1">|</div> : null}
             {i === 1 || i === 3 ? <div className="extrabar-2">|</div> : null}
-            <div
-                className={"navbtn " + (tab === text ? "selected-navelem" : "")}
-                onClick={() => changeTab(text)}
+            <Link
+                to={nav.url}
+                onClick={setFadeout}
+                className={"navbtn " + (path === nav.url ? "selected-navelem" : "")}
             >
-                <p>{text}</p>
-            </div>
+                <p>{nav.title}</p>
+            </Link>
             <div>
                 |
             </div>
@@ -47,19 +59,20 @@ function Main() {
     else if(fadeIn === "subsequent")
         fade = "fadeInFast";
 
-    const visibleTab = navs[tab](fadeIn);
     return <div>
         <Leaves/>
-        <Logo tab={tab}/>
+        <Logo tab={path}/>
         <div id="navmenu" className="fadeIn">
             {navElems}
         </div>
         {fade !== "" ? 
             <div className={fade}>
-                {visibleTab}
+                <Routes>
+                    {navs.map(nav => <Route path={nav.url} element={nav.elem({ReactGA})} key={nav.title}/>)}
+                </Routes>
             </div>
         : null}
-        <Footer/>
+        <Footer ReactGA={ReactGA}/>
     </div>;
 }
 

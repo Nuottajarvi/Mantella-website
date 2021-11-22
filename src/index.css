@@ -5,7 +5,7 @@ html {
 body {
   background-color: #000;
   overflow-x: hidden;
-  width: 100vw;
+  max-width: 100%;
 }
 
 @font-face {
@@ -33,12 +33,16 @@ body {
   left: 0px;
   right: 0px;
   margin-bottom: 0px;
+  max-width: 80%;
 }
+
 .leaf {
-  position: absolute;
+  position: fixed;
   width: 20vw;
   height: 20vw;
   border-radius: 100% 0%;
+  overflow-x: hidden;
+  z-index: 100;
 }
 
 .leaf-left {
@@ -79,6 +83,8 @@ body {
 
 .navbtn {
   cursor: pointer;
+  display: inline-block;
+  margin-left: 12px;
 }
 
 .navelem {
@@ -107,6 +113,7 @@ body {
   font-size: 18px;
   color: white;
   width: 40vw;
+  max-width: 90%;
   text-align: center;
   margin: auto;
   margin-top: 40px;
@@ -159,8 +166,13 @@ body {
   }
 }
 
+#social-medias {
+  max-width: 100%;
+}
+
 #social-medias img{
-  height: 48px;
+  max-height: 48px;
+  max-width: 6%;
   margin: 10px;
 }
 
@@ -187,6 +199,15 @@ body {
 	animation-timing-function: ease-in;
 	animation-duration: 1s;
 }
+
+.fadeInSlow {
+  opacity: 1;
+  animation-name: fadeInFast;
+  animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 5s;
+}
+
 @keyframes fadeIn{
 	0% {
 		opacity: 0;
@@ -265,4 +286,33 @@ body {
 		opacity: 0;   
     height: 0px;
 	}
+}
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+.albumart {
+  width: 250px;
+  height: 250px;
+  display: inline-block;
+}
+
+#spotifyBtn {
+  border-radius: 5px;
+  background-color: #1DB954;
+  width: 12em;
+  margin: auto;
+  padding: 8px;
+  font-size: 24px;
+}
+
+#spotifyBtn:hover {
+  cursor: pointer;
+  background-color: #167a39;
+}
+
+#spotifyBtn img {
+  height: 24px;
+  margin-left: 8px;
 }

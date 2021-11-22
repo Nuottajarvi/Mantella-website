@@ -30,5 +30,5 @@ export default function Leaves()
         setTime(time+1);
     },10);
 
-    return leaves;
+    return <div>{leaves}</div>;
 }
