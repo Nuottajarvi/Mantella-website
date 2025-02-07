@@ -7,8 +7,14 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/*" element={<Main />}/>
-        <Route path="/bird" element={<Gate song="Bird"/>}/>
-        <Route path="/creek" element={<Gate song="Creek"/>}/>
+        <Route path="/puppet" element={<Gate song="Puppet"/>}/>
+        <Route path="/scarlet" element={<Gate song="Scarlet"/>}/>
+        <Route path="/spectator" element={<Gate song="Spectator"/>}/>
+        <Route path="/exitsigns" element={<Gate song="Exit Signs"/>}/>
+        <Route path="/shattered" element={<Gate song="Shattered"/>}/>
+        <Route path="/hourglass" element={<Gate song="Hourglass"/>}/>
+        <Route path="/froggedbrain" element={<Gate song="Frogged Brain"/>}/>
+
       </Routes>
     </div>
   );

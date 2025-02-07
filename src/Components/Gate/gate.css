@@ -1,3 +1,7 @@
+#gate {
+    width: 80%;
+}
+
 .overelem {
  width: 30em;
  margin: auto;
@@ -10,10 +14,11 @@
 .blur {
     width: 60em;
     height: 60em;
+    max-width: 120%;
     margin: auto;
     top: 0px;
-    filter: blur(32px) brightness(70%);
-    -webkit-filter: blur(32px) brightness(70%);
+    filter: blur(32px) brightness(100%);
+    -webkit-filter: blur(32px) brightness(100%);
     z-index: 1;
     left: 0; 
     right: 0; 
@@ -83,6 +88,7 @@ table {
     font-family: Arial;
     font-size: 16px;
     width: 25em;
+    max-width: 95%;
     height: 20em;
     left: 0; 
     right: 0; 

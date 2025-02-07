@@ -4,7 +4,7 @@ import ReactGA from "react-ga4";
 import Leaves from "../leaves";
 import CookieBanner from "./cookiebanner";
 import "./gate.css";
-import IdleThoughts from "../../Images/IdleThoughts.jpeg"
+import FroggedBrain from "../../Images/FroggedBrain.jpg"
 import Spotify from "../../Images/gate/spotify.png"
 import Youtube from "../../Images/gate/youtube.png"
 
@@ -16,6 +16,34 @@ const links = {
     Creek: {
         youtube: "https://www.youtube.com/watch?v=r2gH0MMkJss&ab_channel=Mantella",
         spotify: "https://open.spotify.com/track/6BYyadiS1gFEMrH3Unn1io?si=2e1fdaac17704990"
+    },
+    Puppet: {
+        youtube: "",
+        spotify: ""
+    },
+    Scarlet: {
+        youtube: "",
+        spotify: ""
+    },
+    Spectator: {
+        youtube: "",
+        spotify: ""
+    },
+    "Exit Signs": {
+        youtube: "",
+        spotify: ""       
+    },
+    Shattered: {
+        youtube: "",
+        spotify: ""
+    },
+    Hourglass: {
+        youtube: "",
+        spotify: ""
+    },
+    "Frogged Brain": {
+        youtube: "",
+        spotify: ""
     }
 }
 
@@ -68,12 +96,12 @@ function Gate(props) {
         });
     }
 
-    return <div>
+    return <div id="gate">
         <div style={{filter: cookieModalOpen ? "brightness(10%)" : "none"}}>
-            <Leaves/>
-            <img className="blur" src={IdleThoughts} alt=""/>
+            <Leaves turqoise/>
+            <img className="blur" src={FroggedBrain} alt=""/>
             <div className="content">
-                <img className="albumCover" src={IdleThoughts} alt="Idle thoughts album cover"/>
+                <img className="albumCover" src={FroggedBrain} alt="Idle thoughts album cover"/>
                 <p className="jungle">Mantella - {song}</p>
                 <table className="platforms">
                     <tbody>

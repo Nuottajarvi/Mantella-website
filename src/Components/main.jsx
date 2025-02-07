@@ -8,7 +8,6 @@ import { ConcertsTab, DiscographyTab, MantellaTab, MediaTab } from "./tabs";
 
 const navs = [
     {title: "Mantella", elem: MantellaTab, url: "/"},
-    {title: "Concerts", elem: ConcertsTab, url: "/concerts"},
     {title: "Discography", elem: DiscographyTab, url: "/discography"},
     {title: "Media", elem: MediaTab, url: "/media"}
 ];
